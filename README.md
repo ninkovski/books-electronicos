@@ -32,5 +32,5 @@ Esto permite mantener y actualizar el catálogo desde Airtable sin editar el có
 
 ## 👤 Autor
 
-Desarrollado por [Ninkovski](https://www.linkedin.com/in/ninkovski/)  
+Desarrollado por [Ninkovski](https://www.linkedin.com/in/ninkovski-morales-2b81701ab/)  
 🔗 [GitHub](https://github.com/ninkovski)
