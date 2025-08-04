@@ -14,5 +14,23 @@
 
 ---
 
-## 🚀 Estructura del proyecto
+## 🔌 Cómo funciona
 
+La página obtiene los datos directamente desde Airtable a través de su API.  
+Los productos se cargan dinámicamente mediante JavaScript y se renderizan en la página principal sin necesidad de backend.  
+Esto permite mantener y actualizar el catálogo desde Airtable sin editar el código.
+
+---
+
+## 📦 Tecnologías usadas
+
+- HTML5, CSS3 y JavaScript
+- Bulma (CSS framework)
+- Airtable API
+
+---
+
+## 👤 Autor
+
+Desarrollado por [Ninkovski](https://www.linkedin.com/in/ninkovski/)  
+🔗 [GitHub](https://github.com/ninkovski)
