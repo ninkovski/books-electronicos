@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Productos Electrónicos Perú</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="has-background-light">
+  <section class="hero is-info">
+    <div class="hero-body has-text-centered">
+      <p class="title">Productos Electrónicos Perú</p>
+      <p class="subtitle">Contenido educativo y plantillas digitales para desarrolladores modernos</p>
+    </div>
+  </section>
+
+  <section class="section">
+      <h2 class="title is-4 has-text-centered">📦 Catálogo de productos</h2>
+      <div id="productos" class="columns is-multiline is-centered">
+        <p>Cargando productos...</p>
+      </div>
+  </section>
+
+  <footer class="footer has-text-centered">
+    <p>© 2025 Productos Electrónicos Perú - Todos los derechos reservados</p>
+  </footer>
+
+  <script>
+    fetch("https://api.airtable.com/v0/appEwnUyMa7SRu54V/contenidos", {
+      headers: {
+        Authorization: "Bearer patNpUPCItS11tiHX.2e2cc077b20fd1956853b9374d852ccacf3c98cdde9e8632dd3ec3b97462352a"
+      }
+    })
+    .then(res => res.json())
+    .then(data => {
+      const contenedor = document.getElementById("productos");
+      contenedor.innerHTML = "";
+
+      data.records.forEach(registro => {
+        const fields = registro.fields;
+
+        const item = document.createElement("div");
+        item.className = "column is-4";
+
+        const modalId = `modal-${registro.id}`;
+
+        const descripcionLarga = `
+          <strong>Tipo:</strong> ${fields.tipo}<br/>
+          <strong>Descripción:</strong> ${fields.descripcion}<br/>
+        `;
+
+        item.innerHTML = `
+          <div class="card product-card">
+            <div class="card-content has-text-centered">
+              <div class="card-content">
+                <h3 class="title is-5 has-text-blue is-clickable" onclick="document.getElementById('${modalId}').classList.add('is-active')">
+                ${fields.nombre}</h3>       
+                <div class="buttons is-centered mt-4">
+                  <a href="${fields.url_free}" target="_blank" class="button is-link is-light">Contenido gratuito</a>
+                  <a href="https://ninkovski.app.n8n.cloud/form/d7650359-27ad-46b7-ac51-084d0c3e1bae?contenido=${fields.record_id}" 
+                    target="_blank" 
+                    class="button is-success">Comprar por S/ ${fields.precio}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal" id="${modalId}">
+            <div class="modal-background" onclick="document.getElementById('${modalId}').classList.remove('is-active')"></div>
+            <div class="modal-content">
+              <div class="box">
+                <h4 class="title is-5 has-text-centered">${fields.nombre}</h4>
+                <p class="has-text-justified">${fields.descripcion}</p>
+                <div class="has-text-centered mt-4">
+                  <button class="button is-small is-link mt-3" onclick="document.getElementById('${modalId}').classList.remove('is-active')">Cerrar</button>
+                </div>
+              </div>
+            </div>
+            <button class="modal-close is-large" aria-label="close" onclick="document.getElementById('${modalId}').classList.remove('is-active')"></button>
+          </div>
+        `;
+
+        contenedor.appendChild(item);
+      });
+    });
+  </script>
+</body>
+</html>
