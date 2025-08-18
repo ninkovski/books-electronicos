@@ -17,8 +17,9 @@
     async function redirect() {
       try {
         const params = new URLSearchParams(window.location.search);
-        const path = params.get("page");
-        const url = `https://api.airtable.com/v0/appEwnUyMa7SRu54V/variables?filterByFormula={nombre_variable}="${path}"`;
+        const contenidoId = params.get("contenidoid");
+        const form = params.get("form");
+        const url = `https://api.airtable.com/v0/appEwnUyMa7SRu54V/variables?filterByFormula=AND({contenido_id}="${contenidoId}", {nombre_variable}="${form}")`;
 
         const res = await fetch(url, {
           headers: { 
