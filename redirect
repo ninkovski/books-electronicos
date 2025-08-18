@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Profe Bartolo</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+
+<body class="has-background-light">
+
+  <section class="section">
+    <div class="container" id="app">
+    </div>
+</section>
+  <script>
+    async function redirect() {
+      try {
+        const path = window.location.pathname.replace("/el-profe-bartolo/redirect/", "");
+
+        const url = `https://api.airtable.com/v0/appEwnUyMa7SRu54V/variables?filterByFormula={nombre_variable}="${path}"`;
+
+        const res = await fetch(url, {
+          headers: { 
+            Authorization: "Bearer pategNBkzlZJygcE0.8102fe96d2dbd67d01e16109550d65a9cfd744e5a4375a8057244838b2c7d1bf"
+        }
+
+        });
+        const data = await res.json();
+        if (!data.records || data.records.length === 0) {
+          document.body.innerHTML = "<h2>No se encontró dominio en Airtable</h2>";
+          return;
+        }
+        const targetDomain = data.records[0].fields.valor;
+        window.location.href = targetDomain;
+      } catch (err) {
+        console.error(err);
+        document.body.innerHTML = "<h2>Error cargando la configuración</h2>";
+      }
+    }
+
+    redirect();
+  </script>
+</body>
+</html>
