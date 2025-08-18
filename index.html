@@ -3,22 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <title>El Profe Bartolo</title>
+  <link rel="icon" type="image/png" href="bartolo.png" />
+  <meta property="og:title" content="El Profe Bartolo – Technology Trainer">
+  <meta property="og:description" content="Formando a los próximos desarrolladores con proyectos reales.">
+  <meta property="og:image" content="bartolo.png">
+  <meta property="og:type" content="website">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body class="has-background-light">
-  <section class="hero is-info">
-    <div class="hero-body has-text-centered">
-      <p class="title">El Profe Bartolo – Technology Trainer</p>
-      <p class="subtitle">Formando a los próximos desarrolladores con proyectos reales</p>
+  <section class="hero is-bartolo">
+    <div class="hero-body">
+      <div class="columns is-vcentered">
+        <!-- Logo Bartolo -->
+        <div class="column is-3 has-text-centered">
+          <img src="bartolo.png" alt="Logo Profe Bartolo" style="max-width: 200px;">
+        </div>
+        <!-- Texto -->
+        <div class="column is-9">
+          <h1 class="title is-2">El Profe Bartolo</h1>
+          <h2 class="subtitle is-4">Formando a los próximos desarrolladores con proyectos reales</h2>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Nueva sección introductoria -->
-  <section class="section">
     <div class="container">
-      <div class="box">
         <h2 class="title is-4 has-text-centered">👨‍🏫 Bienvenido a El Profe Bartolo</h2>
         <p class="has-text-justified">
           En <strong>Bartolo “El Profe”</strong> nos especializamos en formar a personas que están dando sus 
@@ -30,32 +42,37 @@
 
         <div class="content mt-4">
           <ul>
-            <li>📘 Guías teóricas y prácticas enfocadas en <strong>Java</strong> y tecnologías relacionadas.</li>
-            <li>💻 Ejercicios y proyectos con arquitecturas <em>reales</em>.</li>
-            <li>📑 Plantillas profesionales (modelo Harvard) para que armes tu CV y empieces a postular.</li>
-            <li>🤝 Mentoría y acompañamiento cercano para que no aprendas solo.</li>
+            <p>📘 Guías teóricas y prácticas enfocadas en <strong>Java</strong> y tecnologías relacionadas.</p>
+            <p>💻 Ejercicios y proyectos con arquitecturas <em>reales</em>.</p>
+            <p>📑 Plantillas profesionales (modelo Harvard) para que armes tu CV y empieces a postular.</p>
+            <p>🤝 Mentoría y acompañamiento cercano para que no aprendas solo.</p>
           </ul>
         </div>
-
+      <section class="section">
+          <h2 class="title is-4 has-text-centered">Nuestras formaciones</h2>
+          <div id="productos" class="columns is-multiline is-centered">
+            <p>Cargando productos...</p>
+          </div>
+      </section>
         <div class="notification is-primary has-text-centered mt-5">
           🎯 <strong>Nuestro objetivo:</strong> Convertir a cualquier principiante motivado en 
           un <em>candidato competitivo</em> para su primera posición en tecnología.  
           <br>📍 <strong>Modalidad:</strong> 100% online y accesible.
         </div>
-      </div>
     </div>
-  </section>
 
-  <section class="section">
-      <h2 class="title is-4 has-text-centered">📦 Catálogo de productos</h2>
-      <div id="productos" class="columns is-multiline is-centered">
-        <p>Cargando productos...</p>
-      </div>
-  </section>
 
-  <footer class="footer has-text-centered">
-    <p>© 2025 Productos Electrónicos Perú - Todos los derechos reservados</p>
-  </footer>
+
+<footer class="footer has-background-dark">
+  <div class="content has-text-centered">
+    <div class="footer-logo">
+    <img src="bartolo.png" alt="Mini Logo Bartolo" width="28" height="28">
+    </div>
+    <p class="footer-text has-text-grey-light" style="font-size: 14px;">
+      © 2025 <strong>El Profe Bartolo</strong> – Todos los derechos reservados
+    </p>
+  </div>
+</footer>
 
   <script>
     fetch("https://api.airtable.com/v0/appEwnUyMa7SRu54V/contenidos", {

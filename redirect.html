@@ -16,7 +16,9 @@
   <script>
     async function redirect() {
       try {
-        const path = window.location.pathname.replace("/el-profe-bartolo/redirect/", "");
+        const params = new URLSearchParams(window.location.search);
+        const path = params.get("page");
+        //const path = window.location.pathname.replace("/el-profe-bartolo/redirect/", "");
 
         const url = `https://api.airtable.com/v0/appEwnUyMa7SRu54V/variables?filterByFormula={nombre_variable}="${path}"`;
 

@@ -42,3 +42,46 @@ p {
   color: #3273dc; /* azul Bulma */
   text-decoration: underline;
 }
+
+:root {
+  --bartolo-blue: #004aad;
+  --bartolo-black: #111111;
+  --bartolo-white: #ffffff;
+}
+
+body {
+  background-color: var(--bartolo-white);
+  color: var(--bartolo-black);
+}
+
+.hero.is-bartolo {
+  background: linear-gradient(135deg, var(--bartolo-blue), var(--bartolo-black));
+  color: var(--bartolo-white);
+}
+
+.hero .title,
+.hero .subtitle {
+  color: var(--bartolo-white);
+}
+
+.button.is-bartolo {
+  background-color: var(--bartolo-blue);
+  color: var(--bartolo-white);
+}
+
+.button.is-bartolo:hover {
+  background-color: #003580;
+}
+
+footer {
+  background-color: var(--bartolo-black);
+  color: var(--bartolo-white);
+  padding: 2rem 1rem;
+}
+footer strong {
+  color: white; 
+}
+.notification.is-primary {
+  background-color: #1a1a2e !important; /* cambia por tu color */
+  color: #ffffff !important;           /* texto blanco */
+}
